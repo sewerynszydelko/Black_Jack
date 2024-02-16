@@ -1,5 +1,5 @@
 """ Deck Class file """
-from card import Card
+from scripts.card import Card
 import random
 
 class Deck:
