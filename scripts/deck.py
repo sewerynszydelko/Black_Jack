@@ -1,6 +1,7 @@
 """ Deck Class file """
-from scripts.card import Card
+from card import Card
 import random
+
 
 class Deck:
 
@@ -8,6 +9,11 @@ class Deck:
         self.cards = []
 
     def create_deck(self):
+        self.cards.clear()
         for s in Card.symbols:
             for v in Card.values:
-                self.cards.append(Card(s,v))
+                self.cards.append(Card(s, v))
+
+    def pick_card(self):
+        random.shuffle(self.cards)
+        return self.cards.pop(random.randint(0, len(self.cards)))
