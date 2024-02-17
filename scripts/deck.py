@@ -14,6 +14,8 @@ class Deck:
             for v in Card.values:
                 self.cards.append(Card(s, v))
 
-    def pick_card(self):
-        random.shuffle(self.cards)
+    def get_card(self):
         return self.cards.pop(random.randint(0, len(self.cards)))
+
+    def shuffling_cards(self):
+        random.shuffle(self.cards)
