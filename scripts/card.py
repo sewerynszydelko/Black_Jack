@@ -17,3 +17,6 @@ class Card:
 
     def __repr__(self):
         return f"{self._symbol} - {self._value}"
+    
+    def get_value(self):
+        return self._value
