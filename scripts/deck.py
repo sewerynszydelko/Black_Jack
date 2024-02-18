@@ -15,7 +15,7 @@ class Deck:
                 self.cards.append(Card(s, v))
 
     def get_card(self):
-        return self.cards.pop(random.randint(0, len(self.cards)))
+        return self.cards.pop(random.randint(0, len(self.cards)-1))
 
     def shuffling_cards(self):
         random.shuffle(self.cards)
