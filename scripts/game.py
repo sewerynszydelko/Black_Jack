@@ -47,7 +47,7 @@ class Game:
             str: save file or print out info
         """
         user_input = input("Do you want to save score? Y or N: ")
-        if user_input == "Y":
+        if user_input == "Y" or user_input == "y":
             with open("score.txt", 'a', encoding="utf-8") as file:
                 file.write(f"{player_name}: {self.score_points}\n")
         else:
