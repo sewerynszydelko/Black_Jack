@@ -77,26 +77,28 @@ class Game:
         crupier = Player("Crupier")
         game_condituion = True
 
-        print("If you want exit any time type exit")
+        print("\nIf you want exit any time type exit")
         while game_condituion:
 
-            if len(deck.cards) < 5:
+            if len(deck.cards) < 1:
                 print("\nGame end not enought cards for you to play")
                 print(self)
                 self.save_name_score(player_name=player.name)
                 break
 
+            # Piciking Cards 2x times
             player.pick_card(deck)
             crupier.pick_card(deck)
 
             player.pick_card(deck)
             crupier.pick_card(deck)
 
+            # Print info and get user input
             print("Now you have:")
             print(player)
             print(
                 "If you want pick another card type 'yes'\nor no to see who win or exit to exit")
-            user_input = input()
+            user_input = input(".. ")
 
             if user_input == "exit":
                 break
@@ -105,18 +107,38 @@ class Game:
                 player.pick_card(deck)
                 crupier.pick_card(deck)
 
+                print(player)
+
                 player.count_point()
                 crupier.count_point()
 
                 self.check_who_win(player, crupier)
+
+                # Show points of player and crupier
+                player.print_points()
+                crupier.print_points()
+                print("\n")
+
+                # Clear points of player and crupier
+                player.clear_points()
+                crupier.clear_points()
+
                 print(self)
             else:
                 player.count_point()
                 crupier.count_point()
 
                 self.check_who_win(player, crupier)
+
+                player.print_points()
+                crupier.print_points()
+                print("\n")
+
+                player.clear_points()
+                crupier.clear_points()
+
                 print(self)
-                input("Pres any key to contiue")
+                input("Pres any key to contiue\n")
 
 
 if __name__ == "__main__":
